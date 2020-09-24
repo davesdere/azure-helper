@@ -1,3 +1,5 @@
+# Davesdere - David Cote - 2020
+# Ca va bien aller
 import functools
 import io
 import json
@@ -20,10 +22,10 @@ def xcli(func):
 
 
 @xcli
-def run_azcli(commands):
+def azcli(commands):
     return json.loads(get_default_cli().invoke(commands))
 
 #e.g get policy def list
-outpout_data = run_azcli(['policy', 'definition', 'list'])
+outpout_data = azcli(['policy', 'definition', 'list'])
 
 print(outpout_data[0])
