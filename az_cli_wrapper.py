@@ -32,7 +32,7 @@ def xcli(func):
 def test_non_json_response():
     b ="#"*80
     print(b)
-    assert type(b) == type(json.loads('test'))
+    assert type(print(b)) == type(json.loads('test'))
 
 @xcli
 def azcli(commands):
@@ -43,4 +43,4 @@ def azcli(commands):
 def test_valid_json_response():
     json_data = azcli(['policy', 'definition', 'list'])
     print(json_data[0])
-    assert type(b) == type(json_data)
+    assert type(json_data) == type(json.loads('test'))
