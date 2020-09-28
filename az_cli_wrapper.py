@@ -1,5 +1,6 @@
 # Davesdere - David Cote - 2020
-# Ca va bien allerimport functools
+# Ca va bien aller
+import functools
 import io
 import json
 import sys
@@ -27,14 +28,11 @@ def xcli(func):
         return value
     return stdout_thief
 
-
 @xcli
-def test_non_json_response(num_times):
-    print("#"*num_times)
-    b= waste_some_time(80)
+def test_non_json_response():
+    b ="#"*80
     print(b)
     assert type(b) == type(json.loads('test'))
-
 
 @xcli
 def azcli(commands):
@@ -42,7 +40,7 @@ def azcli(commands):
     return z
 
 @xcli
-def test_valid_json_response(num_times):
+def test_valid_json_response():
     json_data = azcli(['policy', 'definition', 'list'])
     print(json_data[0])
     assert type(b) == type(json_data)
