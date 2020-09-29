@@ -25,6 +25,7 @@ def xcli(func):
             """
             skeleton = json.loads(skeleton)
             skeleton['result'] = value
+            value = skeleton
         return value
     return stdout_thief
 
