@@ -20,24 +20,24 @@ def xcli(func):
         try:
             value = json.loads(value)
         except:
-            skeleton = """
-                {"result": ""}
-            """
-            skeleton = json.loads(skeleton)
+            skeleton = dict()
             skeleton['result'] = value
-            value = skeleton
+            value = json.loads(json.dumps(skeleton))
         return value
     return stdout_thief
 
 @xcli
 def test_non_json_response():
-    b ="#"*80
-    print(b)
-    assert type(print(b)) == type(json.loads('test'))
+    a ="#"*80
+    b = print(a)
 
 @xcli
-def azcli(commands):
-    z = get_default_cli().invoke(commands)
+def azcli(commands, *fileName):
+    if len(fileName) != 0:
+        with open(fileName[0], 'w') as fileObject:
+            z = get_default_cli().invoke(commands, out_file=fileObject)
+    else:
+        z = get_default_cli().invoke(commands)
     return z
 
 @xcli
